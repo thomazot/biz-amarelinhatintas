@@ -9,6 +9,7 @@ const browserSync = require('browser-sync')
 const svgSprite = require('gulp-svg-sprite')
 const svgmin = require('gulp-svgmin'),
     svgo = require('gulp-svgo')
+const gutil = require('gulp-util')
 const config = require('./skin')
 const { rootValue, unitPrecision } = config.pxtorem
 var { protocol, host } = config
@@ -163,6 +164,10 @@ function build(cb) {
                 },
             })
         )
+        .on('error', function (err) {
+            console.error(err)
+            this.emit('end')
+        })
         .pipe(postcss(processors))
         .pipe(concat('one.css'))
         .pipe(dest('./public/css'))

@@ -1,0 +1,42 @@
+.socials
+    .top-header &
+        margin-left: 10px
+
+    &
+        padding: 0
+
+    &__svg
+        height: 15px
+
+    &__list
+        margin: 0
+
+    &__item
+        padding: 0
+
+        + .socials__item
+            margin-left: 16px !important
+
+    &__link
+        display: flex
+        justify-content: center
+        align-items: center
+
+    .facebook
+        .socials
+            &__link
+                display: flex
+                justify-content: center
+                align-items: flex-end
+                width: 15px
+                height: 15px
+                border-radius: 3px
+                background: var(--primary)
+                color: var(--secundary)
+
+            &__svg
+                height: 13px
+                fill: currentColor
+
+                path
+                    fill: currentColor !important

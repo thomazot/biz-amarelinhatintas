@@ -16,7 +16,7 @@ icon(i)
 /**
  * Mixin - Font-weight
  */
-font = 'Mukta', sans-serif
+font = 'DM Sans', sans-serif
 light = 300
 regular = 400
 medium = 500
@@ -25,7 +25,7 @@ bold = 700
 /**
  * Mixin - Viewport
  */
-viewport = 980px
+viewport = 1120px
 gap = 32px
 /**
  * Mixin - Responsive
@@ -62,3 +62,9 @@ shadowBorder()
 
     @media media-max-lg
         box-shadow: 300px 0 0 @background, -300px 0 0 @background
+
+rgba(color, alpha)
+    return unquote('rgba(' + color + ',' + alpha + ')')
+
+min(a, b)
+    return unquote('min(' + a + ', ' + b + ')')
