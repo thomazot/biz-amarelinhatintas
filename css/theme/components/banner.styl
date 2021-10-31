@@ -1,2 +1,44 @@
 .cms-home .header-container + .banner
     margin-top: -(gap / 2)
+
+.banner--nojs .banner__wrapper
+    column-count: 4
+
+#banner__regua-de-vantagens
+    container()
+
+    margin: 30px auto
+
+    .owl-wrapper
+        @media media-min-lg
+            display: flex
+            justify-content: space-between
+            align-items: center
+            width: 100% !important
+
+            &:after
+                display: none !important
+
+            .owl-item
+                flex: 0 0 auto
+                width: auto !important
+
+#banner__banner-vitrine
+    .owl-wrapper
+        @media media-min-lg
+            display: flex
+            justify-content: space-between
+            align-items: center
+            width: 100% !important
+
+            &:after
+                display: none !important
+
+            .owl-item
+                flex: 0 0 auto
+                width: auto !important
+
+                img
+                    position: static
+                    height: auto
+                    transform: none

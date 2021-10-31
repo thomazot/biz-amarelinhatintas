@@ -1,8 +1,13 @@
 .search
     .header &
+        @media media-max-lg
+            margin: 0 10px
+
+        @media media-min-lg
+            margin: 0 auto
+
         @media media-min-sm
             flex: 0 1 390px
-            margin: 0 minmax(10px, auto)
 
             &__input
                 padding-right: 40px

@@ -748,7 +748,7 @@ function default_carrossel_produtos() {
           navigation: true,
           navigationText: ['?', '?'],
           items: 5,
-          itemsCustom: [[0, 1], [568, 2], [768, 3], [1024, 4], [1270, 5]],
+          itemsCustom: [[0, 1], [568, 2], [768, 3], [1024, 4], [1270, 4]],
           beforeMove: function beforeMove() {
             if (typeof $j.fn.lazyload != 'undefined') {
               $j(el).find('img').lazyload();
@@ -825,6 +825,7 @@ function default_carrossel_brands() {
       $j(el).owlCarousel({
         itemsScaleUp: true,
         navigation: true,
+        items: 6,
         navigationText: ['?', '?'],
         pagination: false
       });
@@ -1357,6 +1358,8 @@ $j(document).ready(function ($) {
   categoriesTitle(); // Menu Categories
 
   $('.categories .parent').click(function (event) {
+    event.stopPropagation();
+
     if ($(event.target).hasClass('parent')) {
       $(event.target).toggleClass('on');
     }

@@ -824,7 +824,7 @@ function default_carrossel_produtos() {
                         [568, 2],
                         [768, 3],
                         [1024, 4],
-                        [1270, 5],
+                        [1270, 4],
                     ],
                     beforeMove: function () {
                         if (typeof $j.fn.lazyload != 'undefined') {
@@ -910,6 +910,7 @@ function default_carrossel_brands() {
             $j(el).owlCarousel({
                 itemsScaleUp: true,
                 navigation: true,
+                items: 6,
                 navigationText: ['?', '?'],
                 pagination: false,
             })
@@ -1436,6 +1437,7 @@ $j(document)
 
         // Menu Categories
         $('.categories .parent').click(function (event) {
+            event.stopPropagation()
             if ($(event.target).hasClass('parent')) {
                 $(event.target).toggleClass('on')
             }

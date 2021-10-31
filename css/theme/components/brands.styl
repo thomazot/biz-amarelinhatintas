@@ -1,0 +1,49 @@
+.brands
+    --background: #F6F6F6
+
+    &
+        padding: 40px 0 60px
+        background: var(--background)
+
+    &__list
+        display: flex !important
+        flex-wrap: wrap
+        justify-content: center
+
+        &:before, &:after
+            text-transform: uppercase
+            font-weight: bold
+            font-size: 20px
+
+        &:before
+            order: 1
+            color: #474747
+            content: 'As melhores'
+
+        &:after
+            order: 2
+            margin-left: 3px
+            color: var(--primary)
+            content: ' marcas'
+
+        .owl-wrapper-outer
+            order: 3
+            margin-top: 30px
+
+    &__item
+        display: flex
+        justify-content: center
+        align-items: center
+
+        a
+            padding: 0
+            height: auto
+            background: none
+
+        img
+            max-width: 100%
+            max-height: none
+            object-fit: contain
+
+    .brands--carrossel &__list
+        container()
