@@ -1,0 +1,46 @@
+.loginout
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    .header &
+        margin-left: 10px
+
+    .ico
+        width: 24px
+        height: 24px
+
+    strong
+        color: var(--primary)
+        font-size: 15px
+
+    > a
+        margin-right: 10px
+        border-radius: var(--radius)
+        color: var(--primary)
+
+        @media media-max-lg
+            display: flex
+            justify-content: center
+            align-items: center
+            margin: 0
+            width: 50px
+            height: 50px
+            background: var(--primary)
+            color: var(--primary-contrast)
+
+    > div
+        @media media-max-lg
+            display: none
+
+        a
+            color: #000
+            font-weight: bold
+            font-size: 15px
+            transition: all 100ms ease-out
+
+            &:hover
+                box-shadow: 0 2px 0 var(--primary)
+
+            + a
+                margin-left: 8px

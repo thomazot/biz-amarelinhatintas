@@ -1,4 +1,15 @@
 .logo
     .header &
+        margin-right: 10px
+
+        @media media-min-sm
+            margin-right: auto
+
         img, svg
-            height: 48px
+            min-width: 0
+            max-width: 40vw
+            max-height: none
+            height: 47px
+
+        img
+            object-fit: contain

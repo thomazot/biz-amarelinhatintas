@@ -1360,6 +1360,20 @@ $j(document).ready(function ($) {
     if ($(event.target).hasClass('parent')) {
       $(event.target).toggleClass('on');
     }
+  }); // Add icons
+
+  addSVG({
+    'z-map': {
+      selector: '.top-header .ico-map > a',
+      mode: 'prepend'
+    },
+    'z-down': {
+      selector: '.top-header .parent > a'
+    },
+    'z-whatsapp': {
+      selector: '.top-header .ico-phone > a',
+      mode: 'prepend'
+    }
   });
 }).on('resizeStop', function (e) {// Safe window.resize
   // Dispara apÃ³s o Ãºltimo movimento de resize parar no navegador.
