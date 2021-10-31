@@ -1,0 +1,41 @@
+.newsletter
+    padding: 40px 0
+
+    &__text
+        @media media-max-lg
+            flex: 0 0 100%
+
+        .title
+            color: white
+            font-weight: regular
+            font-size: 14px
+
+            @media media-max-lg
+                text-align: center
+
+            strong
+                display: block
+                padding: 10px 0
+                color: var(--primary)
+                text-transform: uppercase
+                font-weight: bold
+                font-size: 24px
+
+    &__form
+        display: flex
+        flex-flow: row wrap
+        gap: (gap / 2)
+
+    &__name, &__email, &__submit
+        flex: 1
+        min-width: 0
+
+    &__name, &__email
+        flex: 1 1 200px
+
+    &__submit
+        flex: 1 1 156px
+
+    &__btn, .input-text
+        height: 48px
+        border-radius: var(--radius)
