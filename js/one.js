@@ -98,12 +98,7 @@
          * addSVG() - defaults
          */
         if (neon.default_SVGs !== false) {
-            var truck = {
-                'img-truck': {
-                    selector: '.frete__title',
-                    mode: 'append',
-                },
-            }
+            var truck = {}
             var svgs = {
                 'img-truck': {
                     selector:
@@ -815,23 +810,43 @@ function default_carrossel_produtos() {
             } else {
                 // se for em uma listagem normal
 
-                $j(el).owlCarousel({
-                    navigation: true,
-                    navigationText: ['?', '?'],
-                    items: 5,
-                    itemsCustom: [
-                        [0, 1],
-                        [568, 2],
-                        [768, 3],
-                        [1024, 4],
-                        [1270, 4],
-                    ],
-                    beforeMove: function () {
-                        if (typeof $j.fn.lazyload != 'undefined') {
-                            $j(el).find('img').lazyload()
-                        }
-                    },
-                })
+                if ($j(el).parents('.upsell').length) {
+                    $j(el).owlCarousel({
+                        navigation: true,
+                        navigationText: ['?', '?'],
+                        items: 5,
+                        itemsCustom: [
+                            [0, 1],
+                            [568, 2],
+                            [768, 3],
+                            [1024, 3],
+                            [1270, 3],
+                        ],
+                        beforeMove: function () {
+                            if (typeof $j.fn.lazyload != 'undefined') {
+                                $j(el).find('img').lazyload()
+                            }
+                        },
+                    })
+                } else {
+                    $j(el).owlCarousel({
+                        navigation: true,
+                        navigationText: ['?', '?'],
+                        items: 5,
+                        itemsCustom: [
+                            [0, 1],
+                            [568, 2],
+                            [768, 3],
+                            [1024, 4],
+                            [1270, 4],
+                        ],
+                        beforeMove: function () {
+                            if (typeof $j.fn.lazyload != 'undefined') {
+                                $j(el).find('img').lazyload()
+                            }
+                        },
+                    })
+                }
             }
         })
     }
@@ -1238,7 +1253,7 @@ $j.fn.neonTheme.custom = {
     m_myaccount: true, // ativa o responsivo da Minha Conta
     m_mycart: true, // ativa o responsivo do Meu Carrinho
     m_parcelamento: true, // ativa o responsivo do parcelamento na página de produto
-    m_frete: true, // ativa o responsivo do cálculo de frete na página do produto
+    m_frete: false, // ativa o responsivo do cálculo de frete na página do produto
     m_produto: true, // ativa o responsivo de cada bloco da página de produto
     m_tabs: true, // ativa o responsivo do componente .tabs do tema
     m_painelCliente: true, // ativa o responsivo do Menu do Painel de Cliente
@@ -1246,13 +1261,7 @@ $j.fn.neonTheme.custom = {
      * Funcionalidades do Tema
      */
     dropFrom: false,
-    addSVG: {
-        'img-truck': {
-            selector: '.frete .frete__content .input-box label',
-            mode: 'prepend',
-            ratio: false,
-        },
-    },
+    addSVG: {},
 }
 
 /**
@@ -1459,6 +1468,9 @@ $j(document)
             'z-next': {
                 selector: '.breadcrumb__sep',
                 mode: 'html',
+            },
+            'z-truck': {
+                selector: '.frete__title',
             },
         })
 

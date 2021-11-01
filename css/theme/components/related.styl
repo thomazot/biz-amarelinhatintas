@@ -1,0 +1,23 @@
+.related
+    @media media-min-sm
+        &__title
+            display: flex
+            justify-content: center
+            color: var(--color-text)
+            text-transform: uppercase
+            font-weight: bold
+            font-size: 0
+            gap: 3px
+
+            &:before, &:after
+                font-size: 20px
+
+            &:before
+                content: 'Produtos'
+
+            &:after
+                color: var(--primary)
+                content: 'Relacionados'
+
+    &__subtitle, &__add-checkbox
+        display: none

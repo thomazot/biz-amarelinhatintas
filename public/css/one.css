@@ -4019,26 +4019,6 @@ body.safari .product-image-thumbs .thumb-link {
 .frete__title span {
   order: 1;
 }
-.frete__title:hover {
-  background: var(--primary);
-  color: var(--primary-contrast);
-}
-.frete__title:hover .ico {
-  fill: var(--primary-contrast);
-}
-.frete__content {
-  display: none;
-}
-.frete--open .frete__content {
-  display: block;
-}
-.frete--open .frete__title {
-  background: var(--primary);
-  color: var(--primary-contrast);
-}
-.frete--open .frete__title .ico {
-  fill: var(--primary-contrast);
-}
 .frete__naosei {
   display: block;
   color: #888;
@@ -10474,63 +10454,6 @@ table .change-product-link:hover {
     margin: -1rem -1rem 1rem;
     border-radius: 0;
   }
-  .frete__title {
-    margin: 0;
-    padding: 1rem;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 0;
-    background: #fff;
-    box-shadow: none;
-    font-size: 1rem;
-  }
-  .frete__title span,
-  .frete__title .ico {
-    margin: 0 0 0 auto;
-  }
-  .frete__content {
-    position: fixed;
-    top: 0;
-    left: 100%;
-    z-index: 999;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    overflow-y: auto;
-    padding: 1rem;
-    width: 100vw;
-    height: 100vh;
-    background: #fff;
-    transition: 600ms cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  .frete--open .frete__content {
-    display: flex;
-    transform: translateX(-100%);
-  }
-  .frete__hide {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    display: block;
-    margin: 0;
-    border-radius: 0;
-  }
-  .frete__results {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    display: block !important;
-    overflow-y: auto;
-    width: 100vw;
-    height: 100vh;
-    transition: 600ms cubic-bezier(0.23, 1, 0.32, 1);
-    transform: translateY(100%);
-  }
-  .frete.on .frete__results {
-    transform: translateY(0);
-  }
   .jointsales .owl-buttons {
     display: block;
   }
@@ -11694,22 +11617,22 @@ table .change-product-link:hover {
   width: 70rem;
 }
 :root {
-  --primary: #ffc701;
-  --primary-hover: #ffc701;
-  --primary-contrast: #fff;
-  --primary-contrast-hover: #fff;
-  --secundary: #555557;
-  --secundary-hover: #555557;
-  --secundary-contrast: #fff;
-  --secundary-contrast-hover: #fff;
-  --tertiary: #ccc;
-  --tertiary-hover: #f7f7f7;
-  --tertiary-contrast: #fff;
-  --tertiary-contrast-hover: #fff;
-  --button: #68d940;
-  --button-hover: #4d4d4f;
-  --button-contrast: #fff;
-  --button-contrast-hover: #fff;
+  --primary: @bg(1);
+  --primary-hover: @bg(1:hover);
+  --primary-contrast: @color(1);
+  --primary-contrast-hover: @color(1:hover);
+  --secundary: @bg(2);
+  --secundary-hover: @bg(2:hover);
+  --secundary-contrast: @color(2);
+  --secundary-contrast-hover: @color(1:hover);
+  --tertiary: @bg(3);
+  --tertiary-hover: @bg(3:hover);
+  --tertiary-contrast: @color(3);
+  --tertiary-contrast-hover: @color(3:hover);
+  --button: @button(bg);
+  --button-hover: @button(bg:hover);
+  --button-contrast: @button(color);
+  --button-contrast-hover: @button(color:hover);
   --youtube: #cc0404;
   --facebook: #3b5998;
   --twitter: #00aced;
@@ -12246,6 +12169,75 @@ body {
   font-size: 0.63rem;
 }
 
+.frete {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: solid 1px var(--border-color);
+}
+.frete__content {
+  display: block;
+}
+.frete__title {
+  border: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--color-text);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.frete__title .ico {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--primary);
+}
+.frete__title span {
+  display: none;
+}
+.frete__title:after {
+  content: 'Calcular frete e prazo';
+}
+.frete__form {
+  position: relative;
+}
+.frete__form label {
+  display: none;
+}
+.frete__form .input-box {
+  width: 100%;
+}
+.frete__form .input-text {
+  padding-right: 6.25rem;
+  height: 3rem;
+  border: solid 1px var(--border-color);
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+.frete__naosei {
+  color: var(--color-text);
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+.frete__actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.frete__actions .btn {
+  height: 100%;
+  background: none;
+  box-shadow: none;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.frete__actions .btn span {
+  display: none;
+}
+.frete__actions .btn:before {
+  content: 'Calcular';
+}
+
 .header {
   flex: 1;
   padding: 1.56rem 0;
@@ -12667,6 +12659,33 @@ body {
   background: var(--button);
 }
 
+@media (min-width: 569px) {
+  .related__title {
+    display: flex;
+    justify-content: center;
+    color: var(--color-text);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0;
+    gap: 3px;
+  }
+  .related__title:before,
+  .related__title:after {
+    font-size: 1.25rem;
+  }
+  .related__title:before {
+    content: 'Produtos';
+  }
+  .related__title:after {
+    color: var(--primary);
+    content: 'Relacionados';
+  }
+}
+.related__subtitle,
+.related__add-checkbox {
+  display: none;
+}
+
 .ruler {
   --color: #474747;
 }
@@ -12806,7 +12825,7 @@ body {
   height: 2.94rem;
   border: 1px solid #e0e0e0;
   border-radius: var(--radius);
-  background: url("/media/interface/images/down.png") no-repeat center right 16px;
+  background: url("@img(down)") no-repeat center right 16px;
   box-shadow: none;
   color: #9c9c9c;
   font-weight: 500;
@@ -12834,6 +12853,43 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (min-width: 569px) {
+  .upsell__title {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+}
+.upsell .products__case {
+  background: none;
+  box-shadow: none;
+}
+.upsell .product__name {
+  color: #000;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+.upsell .product__main ul {
+  text-align: left;
+}
+.upsell .product__main ul li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 1.25rem;
+  min-height: 30px;
+  border-radius: 30px;
+  font-weight: 400;
+  font-size: 0.88rem;
+}
+.upsell .product__main ul li:nth-child(odd) {
+  background: #f3f3f3;
+}
+.upsell .product__main ul li:nth-child(1) {
+  background: var(--primary);
+  font-weight: 700;
 }
 
 .catalog-category-view .page-title,
@@ -12866,8 +12922,8 @@ body {
   margin: 0;
   color: var(--color-text);
   text-transform: uppercase;
+  font-weight: 700;
   font-size: 1.5rem;
-  font-weighjt: 700;
 }
 .ias-noneleft {
   display: none !important;
@@ -12891,4 +12947,171 @@ body {
   color: var(--color-text);
   font-weight: 400;
   font-size: 0.88rem;
+}
+
+.catalog-product-view {
+  --border-color: rgba(153, 153, 153, 0.2);
+}
+.catalog-product-view .main-container {
+  max-width: none;
+  width: 100%;
+}
+.catalog-product-view .breadcrumb {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: calc(100% - 32px);
+  width: 70rem;
+}
+.product-essential {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: calc(100% - 32px);
+  width: 70rem;
+}
+#product_addtocart_form {
+  gap: 47px;
+}
+@media (max-width: 992px) {
+  #product_addtocart_form {
+    display: block;
+  }
+}
+.product-image-container {
+  display: flex;
+  gap: 20px;
+}
+.product-image {
+  flex: 1;
+  min-width: 0;
+}
+.product-image-gallery {
+  border-radius: var(--radius);
+  box-shadow: 0 0 0 1px var(--border-color);
+}
+.more-views {
+  flex: 0 1 75px;
+  order: -1;
+}
+.product-image-thumbs {
+  display: block;
+  margin: 0;
+}
+.product-collateral {
+  background: linear-gradient(180deg, #fafafa 0, rgba(255, 255, 255, 0) 100%);
+}
+@media (min-width: 569px) {
+  .product-collateral .tabs {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: calc(100% - 32px);
+    width: 70rem;
+    padding: 2rem 0;
+  }
+  .product-collateral .tabs__tab.on {
+    padding: 2rem 0 1rem;
+    height: auto;
+    border: 0;
+    background: none;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .product-collateral .tabs__content {
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+  .product-collateral .tabs__content,
+  .product-collateral .tabs__content .std {
+    color: #000;
+    font-weight: 400;
+    font-size: 0.88rem;
+  }
+  .product-collateral .carrossel {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: calc(100% - 32px);
+    width: 70rem;
+  }
+}
+@media (max-width: 568px) {
+  .product-collateral .tabs,
+  .product-collateral .carrossel {
+    padding: 0 0.63rem;
+  }
+}
+.prod__img {
+  flex: 0 1 645px;
+  margin: 0;
+  min-width: 0;
+}
+.prod__shop {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+.prod__shop .col {
+  flex: 1;
+  min-width: 0;
+}
+.prod__shop .regular-price .label,
+.prod__shop .special-price .label,
+.prod__shop .minimal-price .label,
+.prod__shop .old-price .label {
+  display: none;
+}
+.prod__shop .regular-price .price span,
+.prod__shop .special-price .price span,
+.prod__shop .minimal-price .price span {
+  color: var(--special-price);
+  font-weight: 700;
+  font-size: 1.88rem;
+}
+.prod__shop .old-price .price {
+  text-decoration: none;
+}
+.prod__shop .old-price .price span {
+  color: var(--old-price);
+  text-decoration: line-through;
+  font-weight: 500;
+  font-size: 0.75rem;
+}
+.prod__shop .preco-parcelado {
+  display: none;
+}
+.prod__shop .preco-parcelado-sem-juros {
+  color: var(--color-text);
+  font-size: 0.75rem;
+}
+.prod__shop .preco-parcelado-sem-juros .upto,
+.prod__shop .preco-parcelado-sem-juros .s-juros {
+  display: none;
+}
+.prod__shop .preco-parcelado-sem-juros .num span,
+.prod__shop .preco-parcelado-sem-juros .de span,
+.prod__shop .preco-parcelado-sem-juros .value span {
+  color: currentColor;
+}
+.prod__shop .qty-wrapper {
+  display: none;
+}
+.prod__shop .add-to-cart-btn {
+  padding: 0;
+  height: 3rem;
+  box-shadow: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.88rem;
+  line-height: 3rem;
+}
+.prod__name {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: solid 1px var(--border-color);
+}
+.prod__name h1 {
+  color: var(--primary);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.75rem;
 }

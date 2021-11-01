@@ -1,0 +1,145 @@
+.catalog-product-view
+    --border-color: rgba(153, 153, 153, .2)
+
+    .main-container
+        max-width: none
+        width: 100%
+
+    .breadcrumb
+        container()
+
+.product-essential
+    container()
+
+#product_addtocart_form
+    gap: 47px
+
+    @media media-max-lg
+        display: block
+
+.product-image-container
+    display: flex
+    gap: 20px
+
+.product-image
+    flex: 1
+    min-width: 0
+
+.product-image-gallery
+    border-radius: var(--radius)
+    box-shadow: 0 0 0 1px var(--border-color)
+
+.more-views
+    flex: 0 1 75px
+    order: -1
+
+.product-image-thumbs
+    display: block
+    margin: 0
+
+.product-collateral
+    background: linear-gradient(180deg, #FAFAFA 0, rgba(255, 255, 255, 0) 100%)
+
+    @media media-min-sm
+        .tabs
+            container()
+
+            padding: gap 0
+
+            &__tab.on
+                padding: gap 0 (gap / 2)
+                height: auto
+                border: 0
+                background: none
+                color: var(--primary)
+                font-weight: bold
+                font-size: 20px
+
+            &__content
+                padding: 0
+                border: 0
+                background: none
+
+                &, .std
+                    color: black
+                    font-weight: regular
+                    font-size: 14px
+
+        .carrossel
+            container()
+
+    @media media-max-sm
+        .tabs, .carrossel
+            padding: 0 10px
+
+.prod
+    &__img
+        flex: 0 1 645px
+        margin: 0
+        min-width: 0
+
+    &__shop
+        flex: 1
+        min-width: 0
+        text-align: center
+
+        .col
+            flex: 1
+            min-width: 0
+
+        .regular-price, .special-price, .minimal-price, .old-price
+            .label
+                display: none
+
+        .regular-price, .special-price, .minimal-price
+            .price span
+                color: var(--special-price)
+                font-weight: bold
+                font-size: 30px
+
+        .old-price
+            .price
+                text-decoration: none
+
+                span
+                    color: var(--old-price)
+                    text-decoration: line-through
+                    font-weight: medium
+                    font-size: 12px
+
+        .preco-parcelado
+            display: none
+
+        .preco-parcelado-sem-juros
+            color: var(--color-text)
+            font-size: 12px
+
+            .upto, .s-juros
+                display: none
+
+            .num, .de, .value
+                span
+                    color: currentColor
+
+        .qty-wrapper
+            display: none
+
+        .add-to-cart-btn
+            padding: 0
+            height: 48px
+            box-shadow: none
+            text-transform: uppercase
+            font-weight: bold
+            font-size: 14px
+            line-height: 48px
+
+    &__name
+        margin-bottom: (gap / 2)
+        padding-bottom: (gap / 2)
+        border-bottom: solid 1px var(--border-color)
+
+        h1
+            color: var(--primary)
+            text-transform: uppercase
+            font-weight: bold
+            font-size: 28px

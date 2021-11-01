@@ -108,12 +108,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
     if (neon.default_SVGs !== false) {
-      var truck = {
-        'img-truck': {
-          selector: '.frete__title',
-          mode: 'append'
-        }
-      };
+      var truck = {};
       var svgs = {
         'img-truck': {
           selector: '.addresses-primary ol li:last-child h3, .order-info-box .shipping-address h2',
@@ -744,17 +739,31 @@ function default_carrossel_produtos() {
         });
       } else {
         // se for em uma listagem normal
-        $j(el).owlCarousel({
-          navigation: true,
-          navigationText: ['?', '?'],
-          items: 5,
-          itemsCustom: [[0, 1], [568, 2], [768, 3], [1024, 4], [1270, 4]],
-          beforeMove: function beforeMove() {
-            if (typeof $j.fn.lazyload != 'undefined') {
-              $j(el).find('img').lazyload();
+        if ($j(el).parents('.upsell').length) {
+          $j(el).owlCarousel({
+            navigation: true,
+            navigationText: ['?', '?'],
+            items: 5,
+            itemsCustom: [[0, 1], [568, 2], [768, 3], [1024, 3], [1270, 3]],
+            beforeMove: function beforeMove() {
+              if (typeof $j.fn.lazyload != 'undefined') {
+                $j(el).find('img').lazyload();
+              }
             }
-          }
-        });
+          });
+        } else {
+          $j(el).owlCarousel({
+            navigation: true,
+            navigationText: ['?', '?'],
+            items: 5,
+            itemsCustom: [[0, 1], [568, 2], [768, 3], [1024, 4], [1270, 4]],
+            beforeMove: function beforeMove() {
+              if (typeof $j.fn.lazyload != 'undefined') {
+                $j(el).find('img').lazyload();
+              }
+            }
+          });
+        }
       }
     });
   }
@@ -1190,7 +1199,7 @@ $j.fn.neonTheme.custom = {
   // ativa o responsivo do Meu Carrinho
   m_parcelamento: true,
   // ativa o responsivo do parcelamento na página de produto
-  m_frete: true,
+  m_frete: false,
   // ativa o responsivo do cálculo de frete na página do produto
   m_produto: true,
   // ativa o responsivo de cada bloco da página de produto
@@ -1203,13 +1212,7 @@ $j.fn.neonTheme.custom = {
    * Funcionalidades do Tema
    */
   dropFrom: false,
-  addSVG: {
-    'img-truck': {
-      selector: '.frete .frete__content .input-box label',
-      mode: 'prepend',
-      ratio: false
-    }
-  }
+  addSVG: {}
 };
 /**
  * Responsive ifs
@@ -1380,6 +1383,9 @@ $j(document).ready(function ($) {
     'z-next': {
       selector: '.breadcrumb__sep',
       mode: 'html'
+    },
+    'z-truck': {
+      selector: '.frete__title'
     }
   }); // Categories
 
