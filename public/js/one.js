@@ -1169,10 +1169,10 @@ $j.fn.neonTheme.custom = {
   fix_IE_SVGs: true,
   // corrige as dimensões de SVGs inline no IE
   fix_zoomHeader: true,
-  // corrige o z-index do .header e do zoom dos produtos no :hover de cada um
+  // corrige o z-index do .header ca do zoom dos produtos no :hover de cada um
   fix_address_phone: true,
   // corrige a exibição do ícone de telefone nas listagens de endereços
-  fix_category_description: true,
+  fix_category_description: false,
   // troca a posição padrão da descrição da categoria
   fix_catalog_flexbox: true,
   // adiciona elementos para arrumar o flexbox do catálogo
@@ -1376,8 +1376,30 @@ $j(document).ready(function ($) {
     'z-whatsapp': {
       selector: '.top-header .ico-phone > a',
       mode: 'prepend'
+    },
+    'z-next': {
+      selector: '.breadcrumb__sep',
+      mode: 'html'
     }
+  }); // Categories
+
+  $('.category-description').each(function () {
+    $('.main').after(this);
+    $(this).show();
   });
+  $('.category-image').each(function () {
+    $('.main-container').before(this);
+    $(this).show();
+  });
+  var title = $('.page-title');
+  var toolbar = $('.toolbar').first();
+
+  if (title.length && toolbar.length) {
+    var wrapperToolbar = $('<div class="wrapper-toolbar">');
+    wrapperToolbar.append(title.show());
+    wrapperToolbar.append(toolbar.show());
+    $('.breadcrumb').after(wrapperToolbar);
+  }
 }).on('resizeStop', function (e) {// Safe window.resize
   // Dispara apÃ³s o Ãºltimo movimento de resize parar no navegador.
 }).on('scrollStop', function (e) {// Safe window.scroll
