@@ -63,8 +63,11 @@ shadowBorder()
     @media media-max-lg
         box-shadow: 300px 0 0 @background, -300px 0 0 @background
 
-rgba(color, alpha)
-    return unquote('rgba(' + color + ',' + alpha + ')')
+rgba(args...)
+    if (length(args) == 2)
+        s('rgba(%s, %s)', args[0], args[1])
+    else
+        s('rgba(%s, %s, %s, %s)', args[0], args[1], args[2], args[3])
 
 min(a, b)
     return unquote('min(' + a + ', ' + b + ')')
