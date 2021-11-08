@@ -25,6 +25,7 @@
         "deploy": "NODE_ENV=production npx gulp deploy",
         "presvg": "yarn svg-min",
         "svg": "npx gulp svg",
+        "javascript": "npx gulp javascript",
         "svg-min": "npx gulp svgMin",
         "imagemin": "npx gulp imagemin"
     },

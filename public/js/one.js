@@ -1418,19 +1418,7 @@ $j(document).ready(function ($) {
     wrapperToolbar.append(title.show());
     wrapperToolbar.append(toolbar.show());
     $('.breadcrumb').after(wrapperToolbar);
-  } // $('.jointsales__list').each(function () {
-  //     $j(this).owlCarousel({
-  //         navigation: true,
-  //         navigationText: ['?', '?'],
-  //         items: 1,
-  //         beforeMove: function () {
-  //             if (typeof $j.fn.lazyload != 'undefined') {
-  //                 $j(el).find('img').lazyload()
-  //             }
-  //         },
-  //     })
-  // })
-
+  }
 }).on('resizeStop', function (e) {// Safe window.resize
   // Dispara apÃ³s o Ãºltimo movimento de resize parar no navegador.
 }).on('scrollStop', function (e) {// Safe window.scroll

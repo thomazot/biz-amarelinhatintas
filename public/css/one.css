@@ -11600,22 +11600,22 @@ table .change-product-link:hover {
   width: 70rem;
 }
 :root {
-  --primary: #ffc701;
-  --primary-hover: #ffc701;
-  --primary-contrast: #fff;
-  --primary-contrast-hover: #fff;
-  --secundary: #555557;
-  --secundary-hover: #555557;
-  --secundary-contrast: #fff;
-  --secundary-contrast-hover: #fff;
-  --tertiary: #ccc;
-  --tertiary-hover: #f7f7f7;
-  --tertiary-contrast: #fff;
-  --tertiary-contrast-hover: #fff;
-  --button: #68d940;
-  --button-hover: #4d4d4f;
-  --button-contrast: #fff;
-  --button-contrast-hover: #fff;
+  --primary: @bg(1);
+  --primary-hover: @bg(1:hover);
+  --primary-contrast: @color(1);
+  --primary-contrast-hover: @color(1:hover);
+  --secundary: @bg(2);
+  --secundary-hover: @bg(2:hover);
+  --secundary-contrast: @color(2);
+  --secundary-contrast-hover: @color(1:hover);
+  --tertiary: @bg(3);
+  --tertiary-hover: @bg(3:hover);
+  --tertiary-contrast: @color(3);
+  --tertiary-contrast-hover: @color(3:hover);
+  --button: @button(bg);
+  --button-hover: @button(bg:hover);
+  --button-contrast: @button(color);
+  --button-contrast-hover: @button(color:hover);
   --youtube: #cc0404;
   --facebook: #3b5998;
   --twitter: #00aced;
@@ -12987,7 +12987,7 @@ body {
   height: 2.94rem;
   border: 1px solid #e0e0e0;
   border-radius: var(--radius);
-  background: url("/media/interface/images/down.png") no-repeat center right 16px;
+  background: url("@img(down)") no-repeat center right 16px;
   box-shadow: none;
   color: #9c9c9c;
   font-weight: 500;
