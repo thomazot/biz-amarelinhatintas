@@ -12,27 +12,45 @@
 
     .product
         &__name
-            color: black
+            display: flex
+            justify-content: center
+            align-items: center
+            margin-bottom: 0
+            padding: 0 16px
+            min-height: 60px
+            background: var(--secundary)
+            color: var(--secundary-contrast)
             font-weight: bold
             font-size: 20px
+            line-height: 1
 
         &__main
             ul
+                background: #F3F3F3
                 text-align: left
 
                 li
                     display: flex
-                    justify-content: flex-start
+                    justify-content: center
                     align-items: center
                     padding: 0 20px
-                    min-height: 30px
-                    border-radius: 30px
+                    min-height: 40px
                     font-weight: regular
                     font-size: 14px
 
-                    &:nth-child(odd)
-                        background: #F3F3F3
+                    &:not(:first-child)
+                        margin: 0 16px
+
+                    &:not(:last-child)
+                        border-bottom: 1px solid #EBEBEB
 
                     &:nth-child(1)
-                        background: var(--primary)
+                        background: #EBEBEB
                         font-weight: bold
+                        font-size: 18px
+
+    .owl-item:nth-child(even)
+        .product
+            &__name
+                background: var(--primary)
+                color: var(--primary-contrast)

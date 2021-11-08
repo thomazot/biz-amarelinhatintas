@@ -1,0 +1,157 @@
+.jointsales
+    @media media-min-sm
+        container()
+
+    @media media-max-sm
+        padding: 0 10px
+
+    &__payments
+        display: none
+
+    &__title
+        @media media-min-sm
+            color: var(--color-text)
+            text-align: center
+            text-transform: uppercase
+            font-weight: bold
+            font-size: 20px
+
+            &:before
+                content: 'Aproveite e '
+
+            &:after
+                color: var(--primary)
+                content: ' Compre junto'
+
+            span
+                display: none
+
+    &__current, &__list, &__actions
+        flex: 0 1 33.333% !important
+        min-width: 0
+
+    &__current, &__item
+        .thumb
+            margin: 0
+
+    &__currentin, &__item
+        flex: 0 0 100%
+        padding: 16px
+        max-width: none
+
+        .info
+            .title
+                padding-bottom: 16px
+                color: var(--text-color)
+                font-weight: regular
+                font-size: 14px
+
+    &__actions
+        position: relative
+        align-self: center
+        padding: 32px
+        background: #F4F4F4
+        text-align: center
+
+        &:before
+            color: var(--color-text)
+            content: 'TOTAL COMPRANDO JUNTO'
+            text-transform: uppercase
+            font-weight: bold
+            font-size: 14px
+
+    &__row
+        flex-wrap: nowrap
+        gap: 50px
+
+        @media media-max-sm
+            display: block
+
+        .owl-item
+            min-width: 100%
+
+    &__totals
+        text-align: center
+
+        .todos-juntos
+            display: none
+
+        .comprando-junto
+            font-size: 0
+
+            .price
+                color: var(--primary)
+                font-weight: bold
+                font-size: 24px
+
+        .economize
+            padding: 0
+            background: none
+            font-size: 0
+
+            &:before
+                content: 'economize '
+
+            .price, &:before
+                color: var(--color-text)
+                font-size: 12px
+                fonw-dith: regular
+
+    &__action
+        padding-top: 10px
+
+        .btn
+            padding: 0
+            width: 100%
+            height: 48px
+            background: var(--button)
+            box-shadow: none
+            color: var(--button-contrast)
+            text-transform: uppercase
+            font-weight: bold
+            font-size: 14px
+            line-height: 48px
+
+    .old-price
+        display: none
+
+    .regular-price, .special-price
+        .label
+            display: none
+
+        .price span
+            color: var(--primary)
+            font-weight: bold
+            font-size: 16px
+
+    .more, .equal
+        position: absolute
+        top: 50%
+        display: flex
+        justify-content: center
+        align-items: center
+        margin-top: -20px
+        padding: 0
+        width: 40px
+        height: 40px
+        border-radius: 10000px
+        background: #F4F4F4
+        color: var(--primary)
+        line-height: 1
+
+        @media media-max-sm
+            display: none
+
+        .ico
+            width: 16px
+            height: 16px
+
+    .equal
+        left: -45px
+
+    .more
+        right: -45px
+        transform: none
+
+        &:before
+            display: none

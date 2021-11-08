@@ -4120,7 +4120,6 @@ body.safari .product-image-thumbs .thumb-link {
 .tabs__tab {
   position: relative;
   z-index: 5;
-  order: 1;
   align-self: flex-end;
   padding: 0 1em;
   height: 2.75em;
@@ -4145,7 +4144,6 @@ body.safari .product-image-thumbs .thumb-link {
 .tabs__content {
   display: none;
   flex: 1 1 100%;
-  order: 2;
   padding: 1rem;
   max-width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -5100,17 +5098,6 @@ tr.bundle:before {
   min-width: 1px;
   transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.jointsales__currentin {
-  position: relative;
-  display: flex;
-  flex: 1 1 100%;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  background: #fff;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
-  transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
 .jointsales__current .thumb {
   flex: 0 0 30%;
   margin-right: 1rem;
@@ -5249,10 +5236,6 @@ tr.bundle:before {
 }
 .jointsales__action {
   margin-top: 1rem;
-}
-.jointsales .owl-wrapper-outer {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-width: 1px 1px 1px 0;
 }
 .jointsales .owl-wrapper.owl-flex {
   align-items: flex-start;
@@ -11617,22 +11600,22 @@ table .change-product-link:hover {
   width: 70rem;
 }
 :root {
-  --primary: @bg(1);
-  --primary-hover: @bg(1:hover);
-  --primary-contrast: @color(1);
-  --primary-contrast-hover: @color(1:hover);
-  --secundary: @bg(2);
-  --secundary-hover: @bg(2:hover);
-  --secundary-contrast: @color(2);
-  --secundary-contrast-hover: @color(1:hover);
-  --tertiary: @bg(3);
-  --tertiary-hover: @bg(3:hover);
-  --tertiary-contrast: @color(3);
-  --tertiary-contrast-hover: @color(3:hover);
-  --button: @button(bg);
-  --button-hover: @button(bg:hover);
-  --button-contrast: @button(color);
-  --button-contrast-hover: @button(color:hover);
+  --primary: #ffc701;
+  --primary-hover: #ffc701;
+  --primary-contrast: #fff;
+  --primary-contrast-hover: #fff;
+  --secundary: #555557;
+  --secundary-hover: #555557;
+  --secundary-contrast: #fff;
+  --secundary-contrast-hover: #fff;
+  --tertiary: #ccc;
+  --tertiary-hover: #f7f7f7;
+  --tertiary-contrast: #fff;
+  --tertiary-contrast-hover: #fff;
+  --button: #68d940;
+  --button-hover: #4d4d4f;
+  --button-contrast: #fff;
+  --button-contrast-hover: #fff;
   --youtube: #cc0404;
   --facebook: #3b5998;
   --twitter: #00aced;
@@ -12267,6 +12250,185 @@ body {
   }
 }
 
+@media (min-width: 569px) {
+  .jointsales {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: calc(100% - 32px);
+    width: 70rem;
+  }
+}
+@media (max-width: 568px) {
+  .jointsales {
+    padding: 0 0.63rem;
+  }
+}
+.jointsales__payments {
+  display: none;
+}
+@media (min-width: 569px) {
+  .jointsales__title {
+    color: var(--color-text);
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+  .jointsales__title:before {
+    content: 'Aproveite e ';
+  }
+  .jointsales__title:after {
+    color: var(--primary);
+    content: ' Compre junto';
+  }
+  .jointsales__title span {
+    display: none;
+  }
+}
+.jointsales__current,
+.jointsales__list,
+.jointsales__actions {
+  flex: 0 1 33.333% !important;
+  min-width: 0;
+}
+.jointsales__current .thumb,
+.jointsales__item .thumb {
+  margin: 0;
+}
+.jointsales__currentin,
+.jointsales__item {
+  flex: 0 0 100%;
+  padding: 1rem;
+  max-width: none;
+}
+.jointsales__currentin .info .title,
+.jointsales__item .info .title {
+  padding-bottom: 1rem;
+  color: var(--text-color);
+  font-weight: 400;
+  font-size: 0.88rem;
+}
+.jointsales__actions {
+  position: relative;
+  -ms-grid-row-align: center;
+  align-self: center;
+  padding: 2rem;
+  background: #f4f4f4;
+  text-align: center;
+}
+.jointsales__actions:before {
+  color: var(--color-text);
+  content: 'TOTAL COMPRANDO JUNTO';
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+.jointsales__row {
+  flex-wrap: nowrap;
+  gap: 50px;
+}
+@media (max-width: 568px) {
+  .jointsales__row {
+    display: block;
+  }
+}
+.jointsales__row .owl-item {
+  min-width: 100%;
+}
+.jointsales__totals {
+  text-align: center;
+}
+.jointsales__totals .todos-juntos {
+  display: none;
+}
+.jointsales__totals .comprando-junto {
+  font-size: 0;
+}
+.jointsales__totals .comprando-junto .price {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.jointsales__totals .economize {
+  padding: 0;
+  background: none;
+  font-size: 0;
+}
+.jointsales__totals .economize:before {
+  content: 'economize ';
+}
+.jointsales__totals .economize .price,
+.jointsales__totals .economize:before {
+  color: var(--color-text);
+  font-size: 0.75rem;
+  fonw-dith: 400;
+}
+.jointsales__action {
+  padding-top: 0.63rem;
+}
+.jointsales__action .btn {
+  padding: 0;
+  width: 100%;
+  height: 3rem;
+  background: var(--button);
+  box-shadow: none;
+  color: var(--button-contrast);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.88rem;
+  line-height: 3rem;
+}
+.jointsales .old-price {
+  display: none;
+}
+.jointsales .regular-price .label,
+.jointsales .special-price .label {
+  display: none;
+}
+.jointsales .regular-price .price span,
+.jointsales .special-price .price span {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.jointsales .more,
+.jointsales .equal {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -1.25rem;
+  padding: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 10000px;
+  background: #f4f4f4;
+  color: var(--primary);
+  line-height: 1;
+}
+@media (max-width: 568px) {
+  .jointsales .more,
+  .jointsales .equal {
+    display: none;
+  }
+}
+.jointsales .more .ico,
+.jointsales .equal .ico {
+  width: 1rem;
+  height: 1rem;
+}
+.jointsales .equal {
+  left: -2.81rem;
+}
+.jointsales .more {
+  right: -2.81rem;
+  transform: none;
+}
+.jointsales .more:before {
+  display: none;
+}
+
 .loginout {
   display: flex;
   justify-content: space-between;
@@ -12825,7 +12987,7 @@ body {
   height: 2.94rem;
   border: 1px solid #e0e0e0;
   border-radius: var(--radius);
-  background: url("@img(down)") no-repeat center right 16px;
+  background: url("/media/interface/images/down.png") no-repeat center right 16px;
   box-shadow: none;
   color: #9c9c9c;
   font-weight: 500;
@@ -12867,29 +13029,45 @@ body {
   box-shadow: none;
 }
 .upsell .product__name {
-  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  padding: 0 1rem;
+  min-height: 60px;
+  background: var(--secundary);
+  color: var(--secundary-contrast);
   font-weight: 700;
   font-size: 1.25rem;
+  line-height: 1;
 }
 .upsell .product__main ul {
+  background: #f3f3f3;
   text-align: left;
 }
 .upsell .product__main ul li {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   padding: 0 1.25rem;
-  min-height: 30px;
-  border-radius: 30px;
+  min-height: 40px;
   font-weight: 400;
   font-size: 0.88rem;
 }
-.upsell .product__main ul li:nth-child(odd) {
-  background: #f3f3f3;
+.upsell .product__main ul li:not(:first-child) {
+  margin: 0 1rem;
+}
+.upsell .product__main ul li:not(:last-child) {
+  border-bottom: 1px solid #ebebeb;
 }
 .upsell .product__main ul li:nth-child(1) {
-  background: var(--primary);
+  background: #ebebeb;
   font-weight: 700;
+  font-size: 1.13rem;
+}
+.upsell .owl-item:nth-child(even) .product__name {
+  background: var(--primary);
+  color: var(--primary-contrast);
 }
 
 .catalog-category-view .page-title,
@@ -12999,6 +13177,60 @@ body {
 .product-collateral {
   background: linear-gradient(180deg, #fafafa 0, rgba(255, 255, 255, 0) 100%);
 }
+.product-collateral .tabs__attrs,
+.product-collateral .tabs__descriptions {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+@media (max-width: 992px) {
+  .product-collateral .tabs__attrs,
+  .product-collateral .tabs__descriptions {
+    display: block;
+    padding: 1.88rem 0;
+  }
+}
+.product-collateral .tabs__attrs > div,
+.product-collateral .tabs__descriptions > div {
+  flex: 1;
+  min-width: 0;
+}
+.product-collateral .tabs__description,
+.product-collateral .tabs__table {
+  padding: 1rem 0;
+}
+.product-collateral .tabs__description {
+  order: -1;
+}
+.product-collateral .tabs__figure {
+  -ms-grid-row-align: stretch;
+  align-self: stretch;
+}
+.product-collateral .tabs__figure img {
+  min-height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.product-collateral .tabs__attrs table {
+  background: none;
+}
+.product-collateral .tabs__attrs table td,
+.product-collateral .tabs__attrs table th {
+  padding: 0.31rem 1rem;
+  border: 0;
+  background: none;
+  color: #000;
+  font-weight: 400;
+  font-size: 0.88rem;
+}
+.product-collateral .tabs__attrs table th {
+  width: 40%;
+}
+.product-collateral .tabs__attrs table tr:nth-child(even) th,
+.product-collateral .tabs__attrs table tr:nth-child(even) td {
+  background: var(--primary);
+}
 @media (min-width: 569px) {
   .product-collateral .tabs {
     margin-right: auto;
@@ -13007,7 +13239,11 @@ body {
     width: 70rem;
     padding: 2rem 0;
   }
-  .product-collateral .tabs__tab.on {
+  .product-collateral .tabs__tab,
+  .product-collateral .tabs__tab.on,
+  .product-collateral .tabs__table h2,
+  .product-collateral .tabs__description:before {
+    margin-bottom: 1.88rem;
     padding: 2rem 0 1rem;
     height: auto;
     border: 0;
@@ -13016,16 +13252,35 @@ body {
     font-weight: 700;
     font-size: 1.25rem;
   }
+  .product-collateral .tabs__description:before {
+    display: block;
+    content: 'Descrição do Produto';
+  }
+  .product-collateral .tabs__tab {
+    display: none;
+  }
+  .product-collateral .tabs__tab--attr {
+    display: none;
+  }
   .product-collateral .tabs__content {
+    display: block;
     padding: 0;
     border: 0;
     background: none;
+  }
+  .product-collateral .tabs__content + .tabs__tab + .tabs__content {
+    padding-top: 4.38rem;
   }
   .product-collateral .tabs__content,
   .product-collateral .tabs__content .std {
     color: #000;
     font-weight: 400;
     font-size: 0.88rem;
+    line-height: 1.5rem;
+  }
+  .product-collateral .tabs__content p,
+  .product-collateral .tabs__content .std p {
+    padding: 0.31rem 0;
   }
   .product-collateral .carrossel {
     margin-right: auto;

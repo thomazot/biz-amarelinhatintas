@@ -846,25 +846,23 @@ function default_carrossel_brands() {
  */
 
 
-function default_carrossel_jointsales() {
-  var jointsales = $j('.jointsales__items');
-
-  if (jointsales.length) {
-    jointsales.each(function (i, el) {
-      $j(el).owlCarousel({
-        singleItem: true,
-        itemScaleUp: true,
-        navigation: true,
-        navigationText: ['?', '?'],
-        autoHeight: true,
-        beforeMove: function beforeMove() {
-          if (typeof $j.fn.lazyload != 'undefined') {
-            $j(el).find('img').lazyload();
-          }
-        }
-      });
-    });
-  }
+function default_carrossel_jointsales() {// var jointsales = $j('.jointsales__items')
+  // if (jointsales.length) {
+  //     jointsales.each(function (i, el) {
+  //         $j(el).owlCarousel({
+  //             singleItem: true,
+  //             itemScaleUp: true,
+  //             navigation: true,
+  //             navigationText: ['?', '?'],
+  //             autoHeight: true,
+  //             beforeMove: function () {
+  //                 if (typeof $j.fn.lazyload != 'undefined') {
+  //                     $j(el).find('img').lazyload()
+  //                 }
+  //             },
+  //         })
+  //     })
+  // }
 }
 /**
  * Troca a descrição da categoria de lugar
@@ -1366,6 +1364,13 @@ $j(document).ready(function ($) {
     if ($(event.target).hasClass('parent')) {
       $(event.target).toggleClass('on');
     }
+  }); // joinsales
+
+  $('.jointsales__row').each(function () {
+    $('.jointsales__totals, .jointsales__payments, .jointsales__action', this).wrapAll('<div class="jointsales__actions" />');
+  });
+  $('.jointsales__actions').each(function () {
+    $(this).prepend('<div class="equal"></div>');
   }); // Add icons
 
   addSVG({
@@ -1386,6 +1391,14 @@ $j(document).ready(function ($) {
     },
     'z-truck': {
       selector: '.frete__title'
+    },
+    'z-more': {
+      selector: '.jointsales__row .more',
+      mode: 'html'
+    },
+    'z-equal': {
+      selector: '.jointsales__row .equal',
+      mode: 'html'
     }
   }); // Categories
 
@@ -1405,7 +1418,19 @@ $j(document).ready(function ($) {
     wrapperToolbar.append(title.show());
     wrapperToolbar.append(toolbar.show());
     $('.breadcrumb').after(wrapperToolbar);
-  }
+  } // $('.jointsales__list').each(function () {
+  //     $j(this).owlCarousel({
+  //         navigation: true,
+  //         navigationText: ['?', '?'],
+  //         items: 1,
+  //         beforeMove: function () {
+  //             if (typeof $j.fn.lazyload != 'undefined') {
+  //                 $j(el).find('img').lazyload()
+  //             }
+  //         },
+  //     })
+  // })
+
 }).on('resizeStop', function (e) {// Safe window.resize
   // Dispara apÃ³s o Ãºltimo movimento de resize parar no navegador.
 }).on('scrollStop', function (e) {// Safe window.scroll

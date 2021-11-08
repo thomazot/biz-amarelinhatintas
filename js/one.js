@@ -937,24 +937,23 @@ function default_carrossel_brands() {
  * Ativa o Carrossel do @compre-junto
  */
 function default_carrossel_jointsales() {
-    var jointsales = $j('.jointsales__items')
-
-    if (jointsales.length) {
-        jointsales.each(function (i, el) {
-            $j(el).owlCarousel({
-                singleItem: true,
-                itemScaleUp: true,
-                navigation: true,
-                navigationText: ['?', '?'],
-                autoHeight: true,
-                beforeMove: function () {
-                    if (typeof $j.fn.lazyload != 'undefined') {
-                        $j(el).find('img').lazyload()
-                    }
-                },
-            })
-        })
-    }
+    // var jointsales = $j('.jointsales__items')
+    // if (jointsales.length) {
+    //     jointsales.each(function (i, el) {
+    //         $j(el).owlCarousel({
+    //             singleItem: true,
+    //             itemScaleUp: true,
+    //             navigation: true,
+    //             navigationText: ['?', '?'],
+    //             autoHeight: true,
+    //             beforeMove: function () {
+    //                 if (typeof $j.fn.lazyload != 'undefined') {
+    //                     $j(el).find('img').lazyload()
+    //                 }
+    //             },
+    //         })
+    //     })
+    // }
 }
 
 /**
@@ -1452,6 +1451,18 @@ $j(document)
             }
         })
 
+        // joinsales
+        $('.jointsales__row').each(function () {
+            $(
+                '.jointsales__totals, .jointsales__payments, .jointsales__action',
+                this
+            ).wrapAll('<div class="jointsales__actions" />')
+        })
+
+        $('.jointsales__actions').each(function () {
+            $(this).prepend('<div class="equal"></div>')
+        })
+
         // Add icons
         addSVG({
             'z-map': {
@@ -1471,6 +1482,14 @@ $j(document)
             },
             'z-truck': {
                 selector: '.frete__title',
+            },
+            'z-more': {
+                selector: '.jointsales__row .more',
+                mode: 'html',
+            },
+            'z-equal': {
+                selector: '.jointsales__row .equal',
+                mode: 'html',
             },
         })
 
@@ -1494,6 +1513,19 @@ $j(document)
             wrapperToolbar.append(toolbar.show())
             $('.breadcrumb').after(wrapperToolbar)
         }
+
+        // $('.jointsales__list').each(function () {
+        //     $j(this).owlCarousel({
+        //         navigation: true,
+        //         navigationText: ['?', '?'],
+        //         items: 1,
+        //         beforeMove: function () {
+        //             if (typeof $j.fn.lazyload != 'undefined') {
+        //                 $j(el).find('img').lazyload()
+        //             }
+        //         },
+        //     })
+        // })
     })
     .on('resizeStop', function (e) {
         // Safe window.resize
